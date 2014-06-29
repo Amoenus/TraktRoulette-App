@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="TraktRoulette_Windows.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TraktRoulette_Windows"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock x:Name="MainTitle" Margin="622,0,582,730" TextWrapping="Wrap" Text="TextBlock" FontSize="36" RenderTransformOrigin="1.901,1.421"/>
+        <TextBox x:Name="JsonText" HorizontalAlignment="Left" Margin="10,95,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="663" Width="1346" AcceptsReturn="True"/>
+        <Button x:ConnectionId='1' x:Name="btnGetJson" Content="Get JSON" HorizontalAlignment="Left" Margin="1010,7,0,0" VerticalAlignment="Top" Height="69" Width="349"                         />
+    </Grid>
+</Page>
+
