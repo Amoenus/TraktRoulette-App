@@ -8,6 +8,6 @@ namespace TraktRoulette_Windows
 {
     interface IWatchListView
     {
-        void PopulateJsonString(string json);
+        void PopulateMovieTitleString(string json);
     }
 }

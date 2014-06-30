@@ -16,6 +16,7 @@ namespace TraktRoulette_Windows
     public sealed partial class MainPage : Page, IWatchListView
     {
         private string JsonString { get; set; }
+        private List<Movie> MovieList { get; set; }
 
         private const string GetWatchListAPiCall = "http://api.trakt.tv/user/watchlist/movies.json/7b8cbd557ce6af7c0987fafdf4582044/Amoenus";
 
@@ -26,18 +27,34 @@ namespace TraktRoulette_Windows
 
         private void btnGetJson_Click(object sender, RoutedEventArgs e)
         {
+            if (MovieList == null)
+            {
+                MovieList = GetWatchList();
+            }
+            int randomIndex = GetRandomElementIndexFromList(MovieList);
+            Movie movie = MovieList.ElementAt(randomIndex);
 
-            JsonString = JsonGrabber.DownloadContent(GetWatchListAPiCall);
-            List<Movie> watchList = JsonGrabber.DeserializeMovies(jsonString);
-            int listItemCount = watchList.Count;
-            Random r = new Random();
-            int x = r.Next(0, listItemCount);
-            PopulateJsonString(watchList.ElementAt(x).Title);
+            PopulateMovieTitleString(movie.Title);
         }
 
-        public void PopulateJsonString(string json)
+        private static int GetRandomElementIndexFromList(List<Movie> watchList)
         {
-            JsonText.Text = json;
+            int listItemCount = watchList.Count;
+            Random r = new Random();
+            int randomIndex = r.Next(0, listItemCount);
+            return randomIndex;
+        }
+
+        private List<Movie> GetWatchList()
+        {
+            JsonString = JsonGrabber.DownloadContent(GetWatchListAPiCall);
+            List<Movie> watchList = JsonGrabber.DeserializeMovies(JsonString);
+            return watchList;
+        }
+
+        public void PopulateMovieTitleString(string title)
+        {
+            MovieTitle_TextBlock.Text = title;
         }
     }
 }

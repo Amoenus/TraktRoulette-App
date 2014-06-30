@@ -9,7 +9,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock x:Name="MainTitle" Margin="622,0,582,730" TextWrapping="Wrap" Text="TextBlock" FontSize="36" RenderTransformOrigin="1.901,1.421"/>
-        <TextBox x:Name="JsonText" HorizontalAlignment="Left" Margin="10,95,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="663" Width="1346" AcceptsReturn="True"/>
         <Button x:Name="btnGetJson" Content="Get JSON" HorizontalAlignment="Left" Margin="1010,7,0,0" VerticalAlignment="Top" Height="69" Width="349" Click="btnGetJson_Click"/>
+        <TextBlock x:Name="MovieTitle_TextBlock" HorizontalAlignment="Left" Margin="10,48,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
     </Grid>
 </Page>
